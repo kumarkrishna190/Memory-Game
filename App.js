@@ -80,14 +80,14 @@ export default function App(props) {
     const renderCards = ({item, index}) =>{console.log('renderCards', item, index)
         if (pairedCardList.includes(item) || openCardIndex == index || openSecondCardIndex == index){
             return(
-                <View style={{backgroundColor: '#FFF', width: wp(24), height: hp(20), justifyContent:'center', margin: wp(0.4), borderWidth: (0.1), borderColor:'#303030'}}>
+                <View style={{backgroundColor: '#FFF', width: wp(24.2), height: hp(20), justifyContent:'center', margin: wp(0.4), borderWidth: (0.1), borderColor:'#303030'}}>
                     <Text style={{fontSize: wp(20), textAlign:'center'}}>{item}</Text>
                 </View>
             )
         }else{
             return(
                 <TouchableOpacity disabled={openSecondCardIndex != -1} onPress={()=>{onCardPress(item, index)}}>
-                    <View style={{backgroundColor: '#303030', width: wp(24), height: hp(20), margin: wp(0.4), borderWidth: (0.1), borderColor:'#303030'}}>
+                    <View style={{backgroundColor: '#303030', width: wp(24.2), height: hp(20), margin: wp(0.4), borderWidth: (0.1), borderColor:'#303030'}}>
                     </View>
                 </TouchableOpacity>
             )
@@ -106,8 +106,8 @@ export default function App(props) {
         return(
             <View style={{flexDirection:'row', justifyContent:'space-between', padding: wp(5)}}>
                 <View style={{alignItems:'center'}}>
-                    <Text>MATCHES</Text>
-                    <Text>{pairedCardList.length}</Text>
+                    <Text style={{fontWeight:'bold'}}>MATCHES</Text>
+                    <Text style={{fontWeight:'bold'}}>{pairedCardList.length}</Text>
                 </View>
                 <TouchableOpacity onPress={()=>{restart()}}>
                     <View style={{backgroundColor:'#303030', paddingVertical: wp(2), paddingHorizontal: wp(4), borderRadius:4}}>
@@ -115,8 +115,8 @@ export default function App(props) {
                     </View>
                 </TouchableOpacity>
                 <View style={{alignItems:'center'}}>
-                    <Text>TURNS</Text>
-                    <Text>{numberOfAttempt}</Text>
+                    <Text style={{fontWeight:'bold'}}>TURNS</Text>
+                    <Text style={{fontWeight:'bold'}}>{numberOfAttempt}</Text>
                 </View>
             </View>
         )
